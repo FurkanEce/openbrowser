@@ -80,9 +80,9 @@ export async function executeRun(runId: string): Promise<void> {
 		// Model oluştur
 		const model = createModel(provider, run.model, apiKey);
 
-		// Tarayıcı başlat (Cloud Run optimizasyonları)
+		// Tarayıcı başlat — Xvfb ile tam Chromium kullan (headless shell CDP sorunlu)
 		browser = new Viewport({
-			headless: true,
+			headless: false,
 			launchOptions: {
 				extraArgs: [
 					'--no-sandbox',
@@ -90,7 +90,6 @@ export async function executeRun(runId: string): Promise<void> {
 					'--disable-dev-shm-usage',
 					'--disable-gpu',
 				],
-				relaxedSecurity: true,
 			},
 		});
 		await browser.start();
