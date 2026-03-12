@@ -84,10 +84,13 @@ export async function POST(request: NextRequest) {
 		return NextResponse.json({ error: error.message }, { status: 500 });
 	}
 
-	// Worker'ı tetikle (arka planda, hata olursa yutulur)
-	triggerWorker(run.id).catch((err) => {
+	// Worker'ı tetikle (await — Vercel serverless'da background çalışmaz)
+	try {
+		await triggerWorker(run.id);
+	} catch (err) {
 		console.error(`[api/runs] failed to trigger worker for ${run.id}:`, err);
-	});
+		// Worker tetiklenemese de run oluşturuldu, 201 dön
+	}
 
 	return NextResponse.json({ run }, { status: 201 });
 }
