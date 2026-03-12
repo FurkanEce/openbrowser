@@ -73,9 +73,12 @@ export class SnapshotBuilder {
 		const layoutMap = new Map<number, { bounds: number[]; text?: string; paintOrder?: number }>();
 		for (let i = 0; i < layout.nodeIndex.length; i++) {
 			const nodeIdx = layout.nodeIndex[i];
+			const textIdx = layout.text?.[i];
 			layoutMap.set(nodeIdx, {
 				bounds: layout.bounds[i],
-				text: layout.text[i] !== -1 ? strings[layout.text[i]] : undefined,
+				text: textIdx != null && textIdx !== -1 && textIdx < strings.length
+					? strings[textIdx]
+					: undefined,
 				paintOrder: layout.paintOrder?.[i],
 			});
 		}
@@ -94,7 +97,9 @@ export class SnapshotBuilder {
 			for (let i = 0; i < nodes.inputValue.index.length; i++) {
 				const nodeIdx = nodes.inputValue.index[i];
 				const valueIdx = nodes.inputValue.value[i];
-				inputValueMap.set(nodeIdx, strings[valueIdx]);
+				if (valueIdx != null && valueIdx < strings.length) {
+					inputValueMap.set(nodeIdx, strings[valueIdx]);
+				}
 			}
 		}
 
@@ -126,7 +131,8 @@ export class SnapshotBuilder {
 		capturedAttributes: string[],
 	): PageTreeNode {
 		const nodeType = nodes.nodeType[nodeIndex];
-		const tagName = strings[nodes.nodeName[nodeIndex]]?.toLowerCase() ?? '';
+		const nameIdx = nodes.nodeName[nodeIndex];
+		const tagName = (nameIdx != null && nameIdx < strings.length ? strings[nameIdx] : '')?.toLowerCase() ?? '';
 		const backendNodeId = nodes.backendNodeId[nodeIndex];
 
 		// Check layout
@@ -144,8 +150,10 @@ export class SnapshotBuilder {
 		const rawAttrs = nodes.attributes[nodeIndex] ?? [];
 		const attributes: Record<string, string> = {};
 		for (let i = 0; i < rawAttrs.length; i += 2) {
-			const name = strings[rawAttrs[i]];
-			const value = strings[rawAttrs[i + 1]];
+			const nameIdx = rawAttrs[i];
+			const valIdx = rawAttrs[i + 1];
+			const name = nameIdx != null && nameIdx < strings.length ? strings[nameIdx] : undefined;
+			const value = valIdx != null && valIdx < strings.length ? strings[valIdx] : undefined;
 			if (name && (capturedAttributes.length === 0 || capturedAttributes.includes(name))) {
 				attributes[name] = value ?? '';
 			}
@@ -178,7 +186,11 @@ export class SnapshotBuilder {
 		const node: PageTreeNode = {
 			tagName,
 			nodeType: nodeType === 3 ? 'text' : 'element',
-			text: nodeType === 3 ? strings[nodes.nodeValue[nodeIndex]] : layoutInfo?.text,
+			text: nodeType === 3
+				? (nodes.nodeValue[nodeIndex] != null && nodes.nodeValue[nodeIndex] < strings.length
+					? strings[nodes.nodeValue[nodeIndex]]
+					: undefined)
+				: layoutInfo?.text,
 			attributes,
 			children: [],
 			isVisible,
