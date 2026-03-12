@@ -27,13 +27,16 @@ RUN apt-get update && apt-get install -y \
 
 WORKDIR /app
 
-# Monorepo root
+# Monorepo root — tüm package.json'ları kopyala (workspace resolution için)
 COPY package.json bun.lock ./
 COPY packages/core/package.json packages/core/
+COPY packages/cli/package.json packages/cli/
+COPY packages/sandbox/package.json packages/sandbox/
+COPY packages/web/package.json packages/web/
 COPY packages/worker/package.json packages/worker/
 
 # Install dependencies
-RUN bun install --frozen-lockfile
+RUN bun install
 
 # Kaynak kodu kopyala
 COPY packages/core/ packages/core/
