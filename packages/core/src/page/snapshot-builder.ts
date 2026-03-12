@@ -63,7 +63,16 @@ export class SnapshotBuilder {
 			};
 		}
 
-		const { nodes, layout, strings } = doc;
+		const nodes = doc.nodes;
+		const layout = doc.layout;
+		const strings: string[] = doc.strings ?? [];
+
+		if (!nodes || !layout || !layout.nodeIndex) {
+			return {
+				root: this.createEmptyNode(),
+				indexCounter: 0,
+			};
+		}
 
 		// Build backend node ID → AX node map
 		const axNodeMap = new Map<number, AXNode>();
