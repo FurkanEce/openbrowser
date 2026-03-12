@@ -186,7 +186,10 @@
 			"stepNumber": "Adim {number}",
 			"url": "URL",
 			"tokens": "Tokenlar",
-			"screenshot": "Ekran Goruntusu"
+			"screenshot": "Ekran Goruntusu",
+			"pendingTitle": "Calistirma kuyrukta",
+			"pendingDescription": "Bu calistirma agent worker tarafindan alinmayi bekliyor. Otomatik olarak baslatilacak.",
+			"waitingForSteps": "Agentin adimlari calistirmasi bekleniyor..."
 		}
 	},
 	"sessions": {

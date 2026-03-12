@@ -186,7 +186,10 @@
 			"stepNumber": "Step {number}",
 			"url": "URL",
 			"tokens": "Tokens",
-			"screenshot": "Screenshot"
+			"screenshot": "Screenshot",
+			"pendingTitle": "Run is queued",
+			"pendingDescription": "This run is waiting to be picked up by the agent worker. It will start automatically.",
+			"waitingForSteps": "Waiting for the agent to start executing steps..."
 		}
 	},
 	"sessions": {
