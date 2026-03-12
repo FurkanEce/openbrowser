@@ -84,5 +84,33 @@ export async function POST(request: NextRequest) {
 		return NextResponse.json({ error: error.message }, { status: 500 });
 	}
 
+	// Worker'ı tetikle (arka planda, hata olursa yutulur)
+	triggerWorker(run.id).catch((err) => {
+		console.error(`[api/runs] failed to trigger worker for ${run.id}:`, err);
+	});
+
 	return NextResponse.json({ run }, { status: 201 });
+}
+
+async function triggerWorker(runId: string): Promise<void> {
+	const workerUrl = process.env.WORKER_URL;
+	if (!workerUrl) {
+		console.warn('[api/runs] WORKER_URL not set, run will stay pending');
+		return;
+	}
+
+	const res = await fetch(`${workerUrl}/run`, {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json',
+			...(process.env.WORKER_SECRET
+				? { Authorization: `Bearer ${process.env.WORKER_SECRET}` }
+				: {}),
+		},
+		body: JSON.stringify({ runId }),
+	});
+
+	if (!res.ok) {
+		throw new Error(`Worker responded with ${res.status}`);
+	}
 }
