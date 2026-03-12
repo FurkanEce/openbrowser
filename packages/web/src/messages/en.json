@@ -175,7 +175,10 @@
 			"configLabel": "Advanced Configuration",
 			"startRun": "Start Run",
 			"maxSteps": "Max Steps",
-			"headless": "Headless Mode"
+			"headless": "Headless Mode",
+			"noProviders": "No AI providers connected",
+			"noProvidersDescription": "You need to connect at least one AI provider (API key or OAuth) before creating a run.",
+			"goToIntegrations": "Go to Integrations"
 		},
 		"detail": {
 			"title": "Run Details",

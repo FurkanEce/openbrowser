@@ -175,7 +175,10 @@
 			"configLabel": "Gelismis Yapilandirma",
 			"startRun": "Calistirmayi Baslat",
 			"maxSteps": "Maksimum Adim",
-			"headless": "Arka Plan Modu"
+			"headless": "Arka Plan Modu",
+			"noProviders": "Bagli AI saglayicisi yok",
+			"noProvidersDescription": "Calistirma olusturmadan once en az bir AI saglayicisini (API anahtari veya OAuth) baglamaniz gerekiyor.",
+			"goToIntegrations": "Entegrasyonlara Git"
 		},
 		"detail": {
 			"title": "Calistirma Detaylari",
