@@ -41,7 +41,8 @@ export async function GET() {
 			})),
 			oauthConnections: oauthConnections ?? [],
 		});
-	} catch {
+	} catch (err) {
+		console.error('[GET /api/integrations]', err);
 		return NextResponse.json(
 			{ error: 'Internal server error' },
 			{ status: 500 },
@@ -106,9 +107,10 @@ export async function POST(request: Request) {
 			{ error: 'Invalid type. Must be "api_key" or "oauth"' },
 			{ status: 400 },
 		);
-	} catch {
+	} catch (err) {
+		console.error('[POST /api/integrations]', err);
 		return NextResponse.json(
-			{ error: 'Internal server error' },
+			{ error: 'Internal server error', details: err instanceof Error ? err.message : String(err) },
 			{ status: 500 },
 		);
 	}
