@@ -94,12 +94,17 @@ export async function POST(request: NextRequest) {
 
 async function triggerWorker(runId: string): Promise<void> {
 	const workerUrl = process.env.WORKER_URL;
+	console.log(`[api/runs] triggerWorker called, WORKER_URL=${workerUrl ? 'SET' : 'NOT SET'}, runId=${runId}`);
+
 	if (!workerUrl) {
-		console.warn('[api/runs] WORKER_URL not set, run will stay pending');
+		console.error('[api/runs] WORKER_URL not set, run will stay pending');
 		return;
 	}
 
-	const res = await fetch(`${workerUrl}/run`, {
+	const url = `${workerUrl}/run`;
+	console.log(`[api/runs] calling worker: POST ${url}`);
+
+	const res = await fetch(url, {
 		method: 'POST',
 		headers: {
 			'Content-Type': 'application/json',
@@ -110,7 +115,10 @@ async function triggerWorker(runId: string): Promise<void> {
 		body: JSON.stringify({ runId }),
 	});
 
+	const body = await res.text();
+	console.log(`[api/runs] worker response: ${res.status} ${body}`);
+
 	if (!res.ok) {
-		throw new Error(`Worker responded with ${res.status}`);
+		throw new Error(`Worker responded with ${res.status}: ${body}`);
 	}
 }
