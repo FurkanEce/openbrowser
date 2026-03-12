@@ -43,11 +43,16 @@ COPY packages/core/ packages/core/
 COPY packages/worker/ packages/worker/
 
 # Playwright tarayıcılarını kur
-RUN cd packages/core && bunx playwright install chromium
+RUN bunx playwright install chromium
 
 WORKDIR /app/packages/worker
 
 ENV PORT=8080
+ENV PLAYWRIGHT_BROWSERS_PATH=/root/.cache/ms-playwright
 EXPOSE 8080
+
+# Health check
+HEALTHCHECK --interval=10s --timeout=5s --start-period=30s \
+  CMD curl -f http://localhost:8080/health || exit 1
 
 CMD ["bun", "run", "src/index.ts"]
