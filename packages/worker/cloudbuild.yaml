@@ -38,8 +38,6 @@ steps:
       - '--min-instances'
       - '0'
       - '--no-allow-unauthenticated'
-      - '--set-env-vars'
-      - 'PORT=8080'
 
 images:
   - 'gcr.io/$PROJECT_ID/openbrowser-worker'
