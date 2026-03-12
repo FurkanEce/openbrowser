@@ -64,6 +64,7 @@ export async function executeRun(runId: string): Promise<void> {
 
 	const provider = run.provider as Provider;
 	const config = (run.agent_config ?? {}) as { max_steps?: number; headless?: boolean };
+	const startTime = Date.now();
 
 	// Durumu "running" yap
 	await updateRunStatus(runId, 'running', {
@@ -79,9 +80,19 @@ export async function executeRun(runId: string): Promise<void> {
 		// Model oluştur
 		const model = createModel(provider, run.model, apiKey);
 
-		// Tarayıcı başlat
+		// Tarayıcı başlat (Cloud Run optimizasyonları)
 		browser = new Viewport({
-			headless: config.headless !== false,
+			headless: true,
+			launchOptions: {
+				args: [
+					'--no-sandbox',
+					'--disable-setuid-sandbox',
+					'--disable-dev-shm-usage',
+					'--disable-gpu',
+					'--single-process',
+				],
+				timeout: 30000,
+			},
 		});
 		await browser.start();
 
