@@ -1,0 +1,253 @@
+{
+	"common": {
+		"appName": "Open Browser",
+		"login": "Giris Yap",
+		"register": "Kayit Ol",
+		"logout": "Cikis Yap",
+		"save": "Kaydet",
+		"cancel": "Iptal",
+		"delete": "Sil",
+		"edit": "Duzenle",
+		"loading": "Yukleniyor...",
+		"error": "Bir hata olustu",
+		"success": "Basarili",
+		"back": "Geri",
+		"next": "Ileri",
+		"confirm": "Onayla",
+		"search": "Ara",
+		"noResults": "Sonuc bulunamadi",
+		"connected": "Bagli",
+		"disconnected": "Bagli degil",
+		"status": "Durum",
+		"actions": "Islemler",
+		"getStarted": "Basla",
+		"learnMore": "Daha Fazla Bilgi"
+	},
+	"landing": {
+		"hero": {
+			"title": "Yapay Zeka Destekli Web Otomasyonu",
+			"subtitle": "AI agentlarin web'de gezinmesine, form doldurmesine, veri cikarmasina ve gorevleri otonom olarak tamamlamasina izin verin.",
+			"cta": "Ucretsiz Basla",
+			"secondaryCta": "Demo Izle"
+		},
+		"features": {
+			"title": "Web otomasyonu icin ihtiyaciniz olan her sey",
+			"autonomous": {
+				"title": "Otonom Gezinme",
+				"description": "AI agentlar web sitelerinde gezinir, butonlara tiklar, formlari doldurur ve manuel kodlama olmadan veri cikarir."
+			},
+			"multiModel": {
+				"title": "Coklu Model Destegi",
+				"description": "OpenAI, Anthropic veya Google AI modellerini kullanin. Saglayicilar arasinda sorunsuz gecis yapin."
+			},
+			"secure": {
+				"title": "Guvenli ve Izole",
+				"description": "13 guvenlik korumasi tarayici oturumlarinizi korur. URL politikalari, kaynak limitleri ve izole calistirma."
+			},
+			"realtime": {
+				"title": "Gercek Zamanli Izleme",
+				"description": "Agentlarinizin calismasini gercek zamanli izleyin. Adim adim calistirma kayitlari, ekran goruntuleri ve maliyet takibi."
+			},
+			"extraction": {
+				"title": "Akilli Veri Cikarma",
+				"description": "Herhangi bir web sitesinden yapilandirilmis veri cikarin. Markdown, JSON veya AI destekli anlama ile ozel semalar."
+			},
+			"costTracking": {
+				"title": "Maliyet Takibi",
+				"description": "Calistirma basina token kullanimi ve maliyetleri takip edin. Butce belirleyin ve asim oncesi uyari alin."
+			}
+		},
+		"cta": {
+			"title": "Web gorevlerinizi otomatiklestirmeye hazir misiniz?",
+			"subtitle": "Ayda 50 ucretsiz calistirma ile baslayin. Kredi karti gerekmez.",
+			"button": "Ucretsiz Hesap Olustur"
+		}
+	},
+	"pricing": {
+		"title": "Basit, seffaf fiyatlandirma",
+		"subtitle": "Ucretsiz baslayin, buyudukce olcekleyin.",
+		"monthly": "Aylik",
+		"yearly": "Yillik",
+		"free": {
+			"name": "Ucretsiz",
+			"price": "$0",
+			"description": "Yeni baslayanlar icin",
+			"features": [
+				"Ayda 50 calistirma",
+				"100K token dahil",
+				"Topluluk destegi",
+				"Temel analizler"
+			],
+			"cta": "Basla"
+		},
+		"pro": {
+			"name": "Pro",
+			"price": "$29",
+			"period": "/ay",
+			"description": "Profesyoneller ve ekipler icin",
+			"features": [
+				"Sinirsiz calistirma",
+				"10M token dahil",
+				"Oncelikli destek",
+				"Gelismis analizler",
+				"Ekip is birligi",
+				"Ozel agent yapilandirmalari"
+			],
+			"cta": "Pro Deneyin"
+		},
+		"enterprise": {
+			"name": "Kurumsal",
+			"price": "Ozel",
+			"description": "Buyuk organizasyonlar icin",
+			"features": [
+				"Pro'daki her sey",
+				"Kendi sunucunuzda barinma",
+				"SSO / SAML",
+				"Ozel destek",
+				"Ozel entegrasyonlar",
+				"SLA garantisi"
+			],
+			"cta": "Satis ile Iletisime Gecin"
+		}
+	},
+	"auth": {
+		"loginTitle": "Tekrar hos geldiniz",
+		"loginSubtitle": "Hesabiniza giris yapin",
+		"registerTitle": "Hesap olusturun",
+		"registerSubtitle": "Web gorevlerinizi otomatiklestirmeye baslayin",
+		"email": "E-posta",
+		"password": "Sifre",
+		"confirmPassword": "Sifre Tekrar",
+		"name": "Ad Soyad",
+		"loginButton": "Giris Yap",
+		"registerButton": "Hesap Olustur",
+		"orContinueWith": "Veya su yontemle devam edin",
+		"google": "Google",
+		"github": "GitHub",
+		"noAccount": "Hesabiniz yok mu?",
+		"hasAccount": "Zaten hesabiniz var mi?",
+		"forgotPassword": "Sifrenizi mi unuttunuz?",
+		"passwordMismatch": "Sifreler eslesmiyor",
+		"invalidEmail": "Gecersiz e-posta adresi",
+		"weakPassword": "Sifre en az 8 karakter olmalidir"
+	},
+	"dashboard": {
+		"title": "Kontrol Paneli",
+		"overview": "Genel Bakis",
+		"recentRuns": "Son Calistirmalar",
+		"activeSessionsCount": "Aktif Oturumlar",
+		"totalRuns": "Toplam Calistirma",
+		"totalCost": "Toplam Maliyet",
+		"tokensUsed": "Kullanilan Tokenlar",
+		"nav": {
+			"overview": "Genel Bakis",
+			"runs": "Calistirmalar",
+			"sessions": "Oturumlar",
+			"integrations": "Entegrasyonlar",
+			"usage": "Kullanim",
+			"settings": "Ayarlar"
+		}
+	},
+	"runs": {
+		"title": "Agent Calistirmalari",
+		"newRun": "Yeni Calistirma",
+		"task": "Gorev",
+		"model": "Model",
+		"status": "Durum",
+		"steps": "Adimlar",
+		"cost": "Maliyet",
+		"duration": "Sure",
+		"createdAt": "Olusturulma",
+		"noRuns": "Henuz calistirma yok. Ilk agent calistirmanizi baslayin!",
+		"statuses": {
+			"pending": "Beklemede",
+			"running": "Calisiyor",
+			"completed": "Tamamlandi",
+			"failed": "Basarisiz",
+			"cancelled": "Iptal Edildi"
+		},
+		"new": {
+			"title": "Yeni Agent Calistirmasi",
+			"taskLabel": "Gorev Tanimi",
+			"taskPlaceholder": "Agentin ne yapmasini istediginizi tanimlayin...",
+			"modelLabel": "AI Modeli",
+			"providerLabel": "Saglayici",
+			"configLabel": "Gelismis Yapilandirma",
+			"startRun": "Calistirmayi Baslat",
+			"maxSteps": "Maksimum Adim",
+			"headless": "Arka Plan Modu"
+		},
+		"detail": {
+			"title": "Calistirma Detaylari",
+			"stepTimeline": "Adim Zaman Cizelgesi",
+			"stepNumber": "Adim {number}",
+			"url": "URL",
+			"tokens": "Tokenlar",
+			"screenshot": "Ekran Goruntusu"
+		}
+	},
+	"sessions": {
+		"title": "Tarayici Oturumlari",
+		"noSessions": "Aktif oturum yok",
+		"terminate": "Sonlandir",
+		"view": "Goruntule",
+		"statuses": {
+			"active": "Aktif",
+			"idle": "Bosta",
+			"terminated": "Sonlandirildi"
+		}
+	},
+	"integrations": {
+		"title": "Entegrasyonlar",
+		"subtitle": "Agent calistirmak icin AI saglayicilarinizi baglain. Kendi API anahtarlarinizi kullanin veya desteklenen saglayicilarda OAuth ile yetkilendirin.",
+		"securityNote": "API anahtarlariniz kaydedilmeden once AES-256-GCM ile sifrelenir. Duz metin anahtarlariniza asla erismeyiz.",
+		"providers": {
+			"openai": "OpenAI",
+			"anthropic": "Anthropic",
+			"google": "Google AI"
+		},
+		"tabs": {
+			"oauth": "OAuth ile Baglan",
+			"apiKey": "API Anahtari"
+		},
+		"oauth": {
+			"connect": "Baglan",
+			"disconnect": "Baglantivi Kes",
+			"connected": "OAuth ile bagli",
+			"connectedAt": "{date} tarihinde baglandi",
+			"description": "AI modellerine guvenli erisim icin Google hesabinizi yetkilendirin."
+		},
+		"apiKey": {
+			"label": "API Anahtari",
+			"placeholder": "API anahtarinizi girin...",
+			"save": "Anahtari Kaydet",
+			"saved": "Anahtar kaydedildi",
+			"lastUsed": "Son kullanim: {date}",
+			"remove": "Anahtari Kaldir",
+			"confirmRemove": "Emin misiniz?"
+		},
+		"status": {
+			"connected": "Bagli",
+			"notConnected": "Bagli Degil"
+		}
+	},
+	"usage": {
+		"title": "Kullanim ve Faturalama",
+		"period": "Donem",
+		"totalTokens": "Toplam Token",
+		"totalCost": "Toplam Maliyet",
+		"totalRuns": "Toplam Calistirma",
+		"byModel": "Modele Gore Kullanim",
+		"daily": "Gunluk Kullanim",
+		"inputTokens": "Giris Tokenlari",
+		"outputTokens": "Cikis Tokenlari"
+	},
+	"settings": {
+		"title": "Ayarlar",
+		"profile": "Profil",
+		"language": "Dil",
+		"notifications": "Bildirimler",
+		"updateProfile": "Profili Guncelle",
+		"profileUpdated": "Profil basariyla guncellendi"
+	}
+}

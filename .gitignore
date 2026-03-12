@@ -1,6 +1,8 @@
 node_modules/
 dist/
 .env
+.env.local
+.env.*.local
 *.tsbuildinfo
 .DS_Store
 traces/
@@ -8,3 +10,22 @@ coverage/
 recordings/
 tmp/
 *.log
+
+# Next.js
+.next/
+out/
+
+# Vercel
+.vercel/
+
+# Supabase local
+supabase/.temp/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Turbo
+.turbo/

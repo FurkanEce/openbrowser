@@ -1,0 +1,253 @@
+{
+	"common": {
+		"appName": "Open Browser",
+		"login": "Login",
+		"register": "Register",
+		"logout": "Logout",
+		"save": "Save",
+		"cancel": "Cancel",
+		"delete": "Delete",
+		"edit": "Edit",
+		"loading": "Loading...",
+		"error": "An error occurred",
+		"success": "Success",
+		"back": "Back",
+		"next": "Next",
+		"confirm": "Confirm",
+		"search": "Search",
+		"noResults": "No results found",
+		"connected": "Connected",
+		"disconnected": "Disconnected",
+		"status": "Status",
+		"actions": "Actions",
+		"getStarted": "Get Started",
+		"learnMore": "Learn More"
+	},
+	"landing": {
+		"hero": {
+			"title": "AI-Powered Web Automation",
+			"subtitle": "Let AI agents browse the web, fill forms, extract data, and complete tasks autonomously.",
+			"cta": "Start Free",
+			"secondaryCta": "View Demo"
+		},
+		"features": {
+			"title": "Everything you need for web automation",
+			"autonomous": {
+				"title": "Autonomous Browsing",
+				"description": "AI agents navigate websites, click buttons, fill forms, and extract data without manual scripting."
+			},
+			"multiModel": {
+				"title": "Multi-Model Support",
+				"description": "Use OpenAI, Anthropic, or Google AI models. Switch between providers seamlessly."
+			},
+			"secure": {
+				"title": "Secure & Sandboxed",
+				"description": "13 security guards protect your browser sessions. URL policies, resource limits, and isolated execution."
+			},
+			"realtime": {
+				"title": "Real-time Monitoring",
+				"description": "Watch your agents work in real-time. Step-by-step execution logs, screenshots, and cost tracking."
+			},
+			"extraction": {
+				"title": "Smart Data Extraction",
+				"description": "Extract structured data from any website. Markdown, JSON, or custom schemas with AI-powered understanding."
+			},
+			"costTracking": {
+				"title": "Cost Tracking",
+				"description": "Track token usage and costs per run. Set budgets and get alerts before overspending."
+			}
+		},
+		"cta": {
+			"title": "Ready to automate your web tasks?",
+			"subtitle": "Start with 50 free runs per month. No credit card required.",
+			"button": "Create Free Account"
+		}
+	},
+	"pricing": {
+		"title": "Simple, transparent pricing",
+		"subtitle": "Start free, scale as you grow.",
+		"monthly": "Monthly",
+		"yearly": "Yearly",
+		"free": {
+			"name": "Free",
+			"price": "$0",
+			"description": "For individuals getting started",
+			"features": [
+				"50 runs per month",
+				"100K tokens included",
+				"Community support",
+				"Basic analytics"
+			],
+			"cta": "Get Started"
+		},
+		"pro": {
+			"name": "Pro",
+			"price": "$29",
+			"period": "/month",
+			"description": "For professionals and teams",
+			"features": [
+				"Unlimited runs",
+				"10M tokens included",
+				"Priority support",
+				"Advanced analytics",
+				"Team collaboration",
+				"Custom agent configs"
+			],
+			"cta": "Start Pro Trial"
+		},
+		"enterprise": {
+			"name": "Enterprise",
+			"price": "Custom",
+			"description": "For large organizations",
+			"features": [
+				"Everything in Pro",
+				"Self-hosted option",
+				"SSO / SAML",
+				"Dedicated support",
+				"Custom integrations",
+				"SLA guarantee"
+			],
+			"cta": "Contact Sales"
+		}
+	},
+	"auth": {
+		"loginTitle": "Welcome back",
+		"loginSubtitle": "Sign in to your account",
+		"registerTitle": "Create an account",
+		"registerSubtitle": "Start automating your web tasks",
+		"email": "Email",
+		"password": "Password",
+		"confirmPassword": "Confirm Password",
+		"name": "Full Name",
+		"loginButton": "Sign In",
+		"registerButton": "Create Account",
+		"orContinueWith": "Or continue with",
+		"google": "Google",
+		"github": "GitHub",
+		"noAccount": "Don't have an account?",
+		"hasAccount": "Already have an account?",
+		"forgotPassword": "Forgot password?",
+		"passwordMismatch": "Passwords do not match",
+		"invalidEmail": "Invalid email address",
+		"weakPassword": "Password must be at least 8 characters"
+	},
+	"dashboard": {
+		"title": "Dashboard",
+		"overview": "Overview",
+		"recentRuns": "Recent Runs",
+		"activeSessionsCount": "Active Sessions",
+		"totalRuns": "Total Runs",
+		"totalCost": "Total Cost",
+		"tokensUsed": "Tokens Used",
+		"nav": {
+			"overview": "Overview",
+			"runs": "Runs",
+			"sessions": "Sessions",
+			"integrations": "Integrations",
+			"usage": "Usage",
+			"settings": "Settings"
+		}
+	},
+	"runs": {
+		"title": "Agent Runs",
+		"newRun": "New Run",
+		"task": "Task",
+		"model": "Model",
+		"status": "Status",
+		"steps": "Steps",
+		"cost": "Cost",
+		"duration": "Duration",
+		"createdAt": "Created",
+		"noRuns": "No runs yet. Start your first agent run!",
+		"statuses": {
+			"pending": "Pending",
+			"running": "Running",
+			"completed": "Completed",
+			"failed": "Failed",
+			"cancelled": "Cancelled"
+		},
+		"new": {
+			"title": "New Agent Run",
+			"taskLabel": "Task Description",
+			"taskPlaceholder": "Describe what you want the agent to do...",
+			"modelLabel": "AI Model",
+			"providerLabel": "Provider",
+			"configLabel": "Advanced Configuration",
+			"startRun": "Start Run",
+			"maxSteps": "Max Steps",
+			"headless": "Headless Mode"
+		},
+		"detail": {
+			"title": "Run Details",
+			"stepTimeline": "Step Timeline",
+			"stepNumber": "Step {number}",
+			"url": "URL",
+			"tokens": "Tokens",
+			"screenshot": "Screenshot"
+		}
+	},
+	"sessions": {
+		"title": "Browser Sessions",
+		"noSessions": "No active sessions",
+		"terminate": "Terminate",
+		"view": "View",
+		"statuses": {
+			"active": "Active",
+			"idle": "Idle",
+			"terminated": "Terminated"
+		}
+	},
+	"integrations": {
+		"title": "Integrations",
+		"subtitle": "Connect your AI providers to start running agents. Use your own API keys or authorize via OAuth where supported.",
+		"securityNote": "Your API keys are encrypted with AES-256-GCM before being stored. We never have access to your plaintext keys.",
+		"providers": {
+			"openai": "OpenAI",
+			"anthropic": "Anthropic",
+			"google": "Google AI"
+		},
+		"tabs": {
+			"oauth": "Connect with OAuth",
+			"apiKey": "API Key"
+		},
+		"oauth": {
+			"connect": "Connect",
+			"disconnect": "Disconnect",
+			"connected": "Connected via OAuth",
+			"connectedAt": "Connected on {date}",
+			"description": "Authorize your Google account to access AI models securely."
+		},
+		"apiKey": {
+			"label": "API Key",
+			"placeholder": "Enter your API key...",
+			"save": "Save Key",
+			"saved": "Key saved",
+			"lastUsed": "Last used: {date}",
+			"remove": "Remove Key",
+			"confirmRemove": "Are you sure?"
+		},
+		"status": {
+			"connected": "Connected",
+			"notConnected": "Not Connected"
+		}
+	},
+	"usage": {
+		"title": "Usage & Billing",
+		"period": "Period",
+		"totalTokens": "Total Tokens",
+		"totalCost": "Total Cost",
+		"totalRuns": "Total Runs",
+		"byModel": "Usage by Model",
+		"daily": "Daily Usage",
+		"inputTokens": "Input Tokens",
+		"outputTokens": "Output Tokens"
+	},
+	"settings": {
+		"title": "Settings",
+		"profile": "Profile",
+		"language": "Language",
+		"notifications": "Notifications",
+		"updateProfile": "Update Profile",
+		"profileUpdated": "Profile updated successfully"
+	}
+}
