@@ -107,21 +107,34 @@ async function triggerWorker(runId: string): Promise<void> {
 	const url = `${workerUrl}/run`;
 	console.log(`[api/runs] calling worker: POST ${url}`);
 
-	const res = await fetch(url, {
-		method: 'POST',
-		headers: {
-			'Content-Type': 'application/json',
-			...(process.env.WORKER_SECRET
-				? { Authorization: `Bearer ${process.env.WORKER_SECRET}` }
-				: {}),
-		},
-		body: JSON.stringify({ runId }),
-	});
+	// Fire-and-forget: send request but don't wait for completion
+	// Worker keeps the HTTP connection open for the full run duration
+	// We use a 10s timeout — just enough to confirm the worker received the request
+	const controller = new AbortController();
+	const timeout = setTimeout(() => controller.abort(), 10000);
 
-	const body = await res.text();
-	console.log(`[api/runs] worker response: ${res.status} ${body}`);
-
-	if (!res.ok) {
-		throw new Error(`Worker responded with ${res.status}: ${body}`);
+	try {
+		const res = await fetch(url, {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+				...(process.env.WORKER_SECRET
+					? { Authorization: `Bearer ${process.env.WORKER_SECRET}` }
+					: {}),
+			},
+			body: JSON.stringify({ runId }),
+			signal: controller.signal,
+		});
+		clearTimeout(timeout);
+		const body = await res.text();
+		console.log(`[api/runs] worker response: ${res.status} ${body}`);
+	} catch (err) {
+		clearTimeout(timeout);
+		// AbortError means the worker is still processing (expected)
+		if (err instanceof Error && err.name === 'AbortError') {
+			console.log(`[api/runs] worker accepted run ${runId} (request timed out as expected)`);
+			return;
+		}
+		throw err;
 	}
 }

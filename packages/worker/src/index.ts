@@ -26,12 +26,15 @@ const server = Bun.serve({
 				return Response.json({ error: 'runId is required' }, { status: 400 });
 			}
 
-			// Start execution in background — respond immediately
-			executeRun(body.runId).catch((err) => {
-				console.error(`[worker] run ${body.runId} failed:`, err);
-			});
-
-			return Response.json({ status: 'accepted', runId: body.runId }, { status: 202 });
+			// Await execution — keep HTTP request open so Cloud Run doesn't kill CPU
+			try {
+				await executeRun(body.runId);
+				return Response.json({ status: 'completed', runId: body.runId }, { status: 200 });
+			} catch (err) {
+				const message = err instanceof Error ? err.message : String(err);
+				console.error(`[worker] run ${body.runId} failed:`, message);
+				return Response.json({ status: 'failed', runId: body.runId, error: message }, { status: 500 });
+			}
 		}
 
 		return Response.json({ error: 'Not found' }, { status: 404 });
