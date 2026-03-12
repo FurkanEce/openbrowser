@@ -84,14 +84,13 @@ export async function executeRun(runId: string): Promise<void> {
 		browser = new Viewport({
 			headless: true,
 			launchOptions: {
-				args: [
+				extraArgs: [
 					'--no-sandbox',
 					'--disable-setuid-sandbox',
 					'--disable-dev-shm-usage',
 					'--disable-gpu',
-					'--single-process',
 				],
-				timeout: 30000,
+				relaxedSecurity: true,
 			},
 		});
 		await browser.start();

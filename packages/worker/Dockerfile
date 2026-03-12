@@ -1,29 +1,7 @@
 FROM oven/bun:1 AS base
 
-# Playwright sistem bağımlılıkları
-RUN apt-get update && apt-get install -y \
-    libnss3 \
-    libnspr4 \
-    libdbus-1-3 \
-    libatk1.0-0 \
-    libatk-bridge2.0-0 \
-    libcups2 \
-    libdrm2 \
-    libxkbcommon0 \
-    libatspi2.0-0 \
-    libxcomposite1 \
-    libxdamage1 \
-    libxfixes3 \
-    libxrandr2 \
-    libgbm1 \
-    libpango-1.0-0 \
-    libcairo2 \
-    libasound2 \
-    libwayland-client0 \
-    xvfb \
-    fonts-noto-color-emoji \
-    fonts-noto-cjk \
-    && rm -rf /var/lib/apt/lists/*
+# Playwright'ın kendi deps installer'ını kullan
+RUN bunx playwright install --with-deps chromium
 
 WORKDIR /app
 
@@ -42,17 +20,15 @@ RUN bun install
 COPY packages/core/ packages/core/
 COPY packages/worker/ packages/worker/
 
-# Playwright tarayıcılarını kur
-RUN bunx playwright install chromium
+# Chromium'un başlayabildiğini doğrula
+RUN bunx playwright install chromium && \
+    echo "Chromium installed at:" && \
+    find /root/.cache/ms-playwright -name "chrome" -o -name "chromium" -o -name "chrome-headless-shell" 2>/dev/null | head -5
 
 WORKDIR /app/packages/worker
 
 ENV PORT=8080
 ENV PLAYWRIGHT_BROWSERS_PATH=/root/.cache/ms-playwright
 EXPOSE 8080
-
-# Health check
-HEALTHCHECK --interval=10s --timeout=5s --start-period=30s \
-  CMD curl -f http://localhost:8080/health || exit 1
 
 CMD ["bun", "run", "src/index.ts"]
